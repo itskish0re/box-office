@@ -7,12 +7,12 @@ const ShowGrid = ({data}) =>{
     return (
         <FlexGrid>
             {data.map(({show}) => (
-                <ShowCard>
+                <ShowCard
                     key={show.id}
                     id={show.id}
                     name={show.name}
                     image={show.image ? show.image.medium : IMAGE_NOT_FOUND}
-                </ShowCard>
+                />
             ))}
         </FlexGrid>
     );
