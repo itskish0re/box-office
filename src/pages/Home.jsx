@@ -22,6 +22,28 @@ const Home = () => {
                 onChange={onInputChange}
                 value={input}
             />
+            <div>
+                <label htmlFor="shows-search">
+                    shows
+                    <input
+                        id="shows-search"
+                        type="radio"
+                        value="shows"
+                        checked={}
+                        onChange={}
+                    />
+                </label>
+                <label htmlFor="actors-search">
+                    Actors
+                    <input
+                        id="actors-search"
+                        type="radio"
+                        value="people"
+                        checked={}
+                        onChange={}
+                    />
+                </label>
+            </div>
             <button 
                 type="button"
                 onClick={onSearch}
