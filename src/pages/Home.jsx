@@ -1,17 +1,43 @@
 import React, {useState} from 'react';
 import MainPageLayout from "../components/MainPageLayout.component";
+import {apiGet} from "../misc/config";
+import ShowGrid from "../components/show/ShowGrid";
 
 const Home = () => {
     const [input, setInput] = useState("");
+    const [results, setResults] = useState(null);
+    const [searchOption, setSearchOption] = useState("shows");
+    const isShowSearch = searchOption === 'shows';
+    const onSearch = () => {
+        apiGet(`/search/${searchOption}?q=${input}`).then(result => {
+            setResults(result);
+        })
+    }
     const onInputChange = (e) => {
         setInput(e.target.value);
     };
-    const onSearch = () => {
-        fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
-            .then(r => r.json())
-            .then(result => {
-                console.log(result);
-            });
+
+    const onKeyDown = e => {
+        if(e.keyCode === 13){
+            onSearch();
+        }
+    };
+
+    const onRadioChange = e => {
+        setSearchOption(e.target.value);
+    };
+
+    const renderResults = () => {
+        if (results && results.length === 0){
+            return <div>No results</div>;
+        }
+        if (results && results.length > 0){
+            return results[0].show ? (
+                <ShowGrid data={results} />
+            ): (<></>
+            )
+        }
+        return null;
     }
 
     return (
@@ -20,6 +46,7 @@ const Home = () => {
                 type="text"
                 placeholder="Enter Text"
                 onChange={onInputChange}
+                onKeyDown={onKeyDown}
                 value={input}
             />
             <div>
@@ -29,8 +56,8 @@ const Home = () => {
                         id="shows-search"
                         type="radio"
                         value="shows"
-                        checked={}
-                        onChange={}
+                        checked={isShowSearch}
+                        onChange={onRadioChange}
                     />
                 </label>
                 <label htmlFor="actors-search">
@@ -39,17 +66,15 @@ const Home = () => {
                         id="actors-search"
                         type="radio"
                         value="people"
-                        checked={}
-                        onChange={}
+                        checked={!isShowSearch}
+                        onChange={onRadioChange}
                     />
                 </label>
             </div>
-            <button 
-                type="button"
-                onClick={onSearch}
-            >
+            <button type="button" onClick={onSearch} >
                 Search
             </button>
+            {renderResults()}
         </MainPageLayout>
     );
 };
