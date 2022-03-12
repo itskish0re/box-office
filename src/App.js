@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes,Route} from "react-router";
 import Home from "./pages/Home";
 import Starred from "./pages/Starred";
+import Show from "./pages/show";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/starred" element={<Starred/>} />
+        <Route path="/show/:id" element={<Show/>} />
         <Route>
           <>Not found</>
         </Route>

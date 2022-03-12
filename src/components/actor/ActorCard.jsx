@@ -1,5 +1,5 @@
 import React from "react";
-import {StyledActorCard} from "../../styles/Styled";
+import {StyledActorCard} from "./Actor.styles";
 
 const ActorCard = ({image, name, gender, country, birthday, deathday}) => {
     return (

@@ -1,11 +1,11 @@
 import React, {useEffect, useReducer} from "react";
-import {useParams} from "react-router";
+import {useParams} from "react-router-dom";
 import {apiGet} from "../misc/config";
 import ShowMainData from "../components/show/showmaindata/ShowMainData";
 import Details from "../components/show/details/Details";
 import Seasons from "../components/show/seasons/Seasons";
 import Cast from "../components/show/cast/Cast";
-import { ShowPageWrapper, InfoBlock} from "../styles/Styled";
+import { ShowPageWrapper, InfoBlock } from "../styles/Styled";
 
 const reducer = (prevState, action) => {
     switch (action.type){
@@ -32,9 +32,10 @@ const Show = () => {
         reducer,
         initialState
     );
+
     useEffect(() => {
         let isMounted = true;
-        apiGet(`/shows/${id}?embed[]=season&embed[]=cast`)
+        apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
             .then(results => {
                 if(isMounted){
                     dispatch({type: 'FETCH_SUCCESS', show: results});
