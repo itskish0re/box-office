@@ -28,9 +28,9 @@ const Starred = () => {
     },[starred]);
 
     return <MainPageLayout>
-        {isLoading && <div>Shows are still loading</div> }
+        {isLoading && <div style={{"text-align": "center"}}>Shows are still loading</div> }
         {error && <div>Error occured: {error}</div>}
-        {!isLoading && !shows && <div>No shows were added</div>}
+        {!isLoading && !shows && <div style={{"text-align": "center"}}>No shows were added</div>}
         {!isLoading && !error && shows && <ShowGrid data={shows}/> }
     </MainPageLayout>
 };

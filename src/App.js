@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes,Route} from "react-router";
 import { ThemeProvider } from "styled-components";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import Starred from "./pages/Starred";
 import Show from "./pages/show";
 

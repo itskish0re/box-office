@@ -12,10 +12,10 @@ const Show = () => {
     const {show, isLoading, error} = useShow(id);
 
     if(isLoading){
-        return <div>Data is being loaded</div>;
+        return <div style={{"text-align": "center", margin: "20px"}}>Data is being loaded</div>;
     }
     if(error){
-        return <div>Error occured: {error}</div>
+        return <div style={{"text-align": "center", margin: "20px"}}>Error occured: {error}</div>
     }
 
     return (
