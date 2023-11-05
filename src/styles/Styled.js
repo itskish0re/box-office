@@ -75,6 +75,8 @@ export const InfoBlock = styled.div`
     h2 {
         margin: 0 0 30px 0;
         font-size: 22px;
+        font-family: "Roboto Slab", serif;
+        font-weight: 400;
     }
 `;
 

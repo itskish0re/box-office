@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 import { DetailsWrapper } from "./Detalis.styled";
 
-const Details = ({ status, premiered, network}) => {
+const Details = ({ status, premiered, network }) => {
     return (
         <DetailsWrapper>
-            <p>Status: <span>{status}</span></p>
-            <p>Premired {premiered} {network ? `on ${network.name}` : null}</p>
+            <p>
+                Status: <span>{status}</span>
+            </p>
+            <p>
+                Premired <span>{premiered}</span>{" "}
+                {network ? `on <span>${network.name}<span>` : null}
+            </p>
         </DetailsWrapper>
     );
 };
