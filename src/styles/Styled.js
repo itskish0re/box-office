@@ -16,8 +16,7 @@ export const SearchCard = styled.div`
         border-radius: 40px;
         height: 420px;
         overflow: hidden;
-        border: 1px solid white;
-
+        box-shadow: 0px 0 8px 0px rgba(219, 219, 219, 0.5);
         img {
             object-fit: cover;
             height: 100%;
