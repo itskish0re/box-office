@@ -8,6 +8,8 @@ export const TitleWrapper = styled.div`
         color: ${({ theme }) => theme.mainColors.blue};
         letter-spacing: 10px;
         text-transform: uppercase;
+        font-family: "Roboto Slab", serif;
+        font-weight: bold;
         margin: 0 0 10px;
     }
 
